@@ -202,10 +202,22 @@ For a monocular input from topic `/camera/image_raw` run node ORB_SLAM2/Mono. Yo
   
 ### Running Monocular Augmented Reality Demo
 This is a demo of augmented reality where you can use an interface to insert virtual cubes in planar regions of the scene.
-The node reads images from topic `/camera/image_raw`.
+The node reads images from topic `/usb_cam/image_raw`.
+
+Prepare
+  ```
+  roscore
+  ```
 
   ```
-  rosrun ORB_SLAM2 MonoAR PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE
+  roslaunch usb_cam usb_cam-test.launch
+
+  if not exists, and then run: 
+  sudo apt-get install  ros-noetic-usb-cam ros-noetic-image-view
+  ```
+
+  ```
+  rosrun ORB_SLAM2 MonoAR Vocabulary/ORBvoc.txt Examples/ROS/ORB_SLAM2/Asus.yaml
   ```
   
 ### Running Stereo Node
